@@ -1272,6 +1272,7 @@ form .form-group:last-child{padding-bottom:0;}
     font-size: 14px;
     width: 40px;
     text-align: center;
+    float: right;
 }
 .nav-list .sel a{
     color: #FFFFFF;
