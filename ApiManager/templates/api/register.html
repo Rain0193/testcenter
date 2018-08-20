@@ -18,11 +18,17 @@
 
         .wrap1 {
             position: absolute;
-            top: 0;
+            top: -400px;
             right: 0;
             bottom: 0;
             left: 0;
             margin: auto
+        }
+
+         .logo-img{
+            width:100%;
+            height: 140px;
+            text-align: center;
         }
 
         /*把整个屏幕真正撑开--而且能自己实现居中*/
@@ -59,9 +65,23 @@
             background: none;
         }
 
+        .login_select{
+            width: 100%;
+            border: 1px solid #3872f6;
+            border-radius: 3px;
+            line-height: 40px;
+            height: 46px;
+            padding: 2px 5px 2px 30px;
+            background: none;
+        }
+
+        .select_style{
+            background: #000000;
+        }
+
         .icon_font {
             position: absolute;
-            bottom: 15px;
+            top: 13px;
             left: 10px;
             font-size: 18px;
             color: #3872f6;
@@ -100,16 +120,25 @@
 <body style="background:url({% static "api/assets/img/bg.jpg" %}) no-repeat;">
 
 <div class="container wrap1" style="height:450px;">
-    <h2 class="mg-b20 text-center">Welcome to HttpRunnerManager</h2>
+    <h2 class="mg-b20 text-center">Welcome to TestCenter</h2>
     <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content">
-        <p class="text-center font16">用户注册</p>
+        <div class="logo-img"><img src="{% static "data/assets/img/logo-words.png" %}" width="130"
+                                   height="130"></div>
         <form action="/http/api/login/" role="form" method="POST" id="register_form">
             <div class="form-group mg-t20">
                 <i class="icon-user icon_font"></i>
                 <input type="text" class="login_input" name="account" id="account" placeholder="请输入用户名"/>
             </div>
             <div class="form-group mg-t20">
-                <i class="icon-lock icon_font"></i>
+                <i class="icon-sysmanager icon_font"></i>
+                <select name="type" id="type" class="login_select">
+                    <option class="select_style" value="请选择角色">请选择角色</option>
+                    <option class="select_style" value="1">测试</option>
+                    <option class="select_style" value="2">开发</option>
+                </select>
+            </div>
+            <div class="form-group mg-t20">
+                <i class="icon-address icon_font"></i>
                 <input class="login_input" name="email" id="email" type="text" placeholder="请输入邮箱">
             </div>
             <div class="form-group mg-t20">

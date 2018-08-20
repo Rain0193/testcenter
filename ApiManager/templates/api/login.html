@@ -17,11 +17,17 @@
 
         .wrap1 {
             position: absolute;
-            top: 0;
+            top: -400px;
             right: 0;
             bottom: 0;
             left: 0;
             margin: auto
+        }
+
+        .logo-img{
+            width:100%;
+            height: 140px;
+            text-align: center;
         }
 
         /*把整个屏幕真正撑开--而且能自己实现居中*/
@@ -99,9 +105,10 @@
 <body style="background:url({% static "api/assets/img/bg.jpg" %}) no-repeat;">
 
 <div class="container wrap1" style="height:450px;">
-    <h2 class="mg-b20 text-center">Welcome to HttpRunnerManager</h2>
+    <h2 class="mg-b20 text-center">Welcome to TestCenter</h2>
     <div class="col-sm-8 col-md-5 center-auto pd-sm-50 pd-xs-20 main_content">
-        <p class="text-center font16">用户登录</p>
+        <div class="logo-img"><img src="{% static "data/assets/img/logo-words.png" %}" width="130"
+                                   height="130"></div>
         <form action="/http/api/login/" role="form" method="POST" id="login_form">
             <div class="form-group mg-t20">
                 <i class="icon-user icon_font"></i>

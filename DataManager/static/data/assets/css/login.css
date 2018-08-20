@@ -6,7 +6,7 @@ body {
     background-size: 100% 100%;
 }
     .login-form{
-        width:380px;
+        width:450px;
         height: 460px;
         background: #FFFFFF;
         border: 1px solid #E5E9EF;
@@ -25,11 +25,16 @@ body {
 .form-header input{
     position: relative;
     margin:0 auto;
-    margin-top:30px;
-    width:70%;
     height: 40px;
-    border: 1px solid #FFFFFF;
     border-radius:3px ;
+}
+
+.form-header .form-control{
+    position: relative;
+    margin:0 auto;
+    height: 40px;
+    border-radius:3px ;
+    padding: 2px 5px 2px 30px;
 }
 
 .form-header .form-group{
@@ -38,7 +43,6 @@ body {
     margin-top:30px;
     width:70%;
     font-size: 40px;
-    border: 1px solid #dbdbdb;
     border-radius:3px ;
 }
 .form-header .icon {
@@ -50,13 +54,7 @@ body {
     background-size: auto 15px;
     margin: 6px 0 0 8px;
     color:#777;
-}
-.form-header .form-control {
-    margin-left:30px;
-    margin-top: 0px;
-    overflow:hidden;
-    height:40px;
-    width: 88%;
+    z-index: 100;
 }
 
 .form-header .login-button-div{
@@ -68,10 +66,11 @@ body {
     height:40px;
     background:#3eb0f7;
     border-radius:4px;
-    margin:0 auto;
+    margin-top: 55px;
     text-align:center;
     line-height:40px;
     color:#fff;
+    border: #FFFFFF;
 }
 .form-header .login-button:hover{
     background-color: #1f96e0;
