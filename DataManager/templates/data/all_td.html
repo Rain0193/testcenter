@@ -61,7 +61,7 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <input type="hidden" name="url" value="{{ tds.td_url }}"/>
+                    <input class="url-hidden" type="hidden" value="{{ tds.td_url }}"/>
 
                     <div class="submit-btn-row"><a class="submit btn" onclick="pv_ajax('{{ tds.id }}', '/qacenter/data/all_td/', 'pv', true)">确定</a></div>
                 </form>
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     {% endfor %}
-                    <input type="hidden" name="url" value="{{ tds.td_url }}"/>
+                    <input class="url-hidden" type="hidden" value="{{ tds.td_url }}"/>
 
                     <div class="submit-btn-row"><a class="submit btn" onclick="pv_ajax('{{ tds.id }}', '/qacenter/data/all_td/', 'pv', true)">确定</a></div>
                 </form>
@@ -210,7 +210,7 @@
         }).on('click', '.submit', function() {
             var formId = $(this).parent().parent().attr('id');
             var formData = $("#" + formId).serializeArray();
-            var url = $(this).parent().parent().find('input[name="url"]').val();
+            var url = $(this).parent().parent().find('input[class="url-hidden"]').val();
             var id = $(this).parent().parent().parent().find('input[name="id"]').val();
             var account = $(this).parent().parent().parent().parent().parent().find('input[name="account"]').val();
             var kwMap = {};
