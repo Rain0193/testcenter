@@ -3,6 +3,7 @@ import logging
 import os
 import shutil
 import sys
+import hashlib
 
 import paramiko
 from django.http import HttpResponse, HttpResponseRedirect, JsonResponse, StreamingHttpResponse
@@ -51,8 +52,9 @@ def login(request):
     if request.method == 'POST':
         username = request.POST.get('account')
         password = request.POST.get('password')
+        password_md5 = hashlib.md5(password.encode(encoding='utf-8')).hexdigest()
 
-        if UserInfo.objects.filter(username__exact=username).filter(password__exact=password).count() == 1:
+        if UserInfo.objects.filter(username__exact=username).filter(password__exact=password_md5).count() == 1:
             logger.info('{username} 登录成功'.format(username=username))
             request.session["login_status"] = True
             request.session["now_account"] = username

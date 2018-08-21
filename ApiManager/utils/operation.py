@@ -1,6 +1,7 @@
 import datetime
 import logging
 import os
+import hashlib
 
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import DataError
@@ -23,6 +24,9 @@ def add_register_data(**kwargs):
         username = kwargs.pop('account')
         password = kwargs.pop('password')
         email = kwargs.pop('email')
+        type = kwargs.pop('type')
+
+        password_md5 = hashlib.md5(password.encode(encoding='utf-8')).hexdigest()
 
         if user_info.filter(username__exact=username).filter(status=1).count() > 0:
             logger.debug('{username} 已被其他用户注册'.format(username=username))
@@ -30,7 +34,7 @@ def add_register_data(**kwargs):
         if user_info.filter(email__exact=email).filter(status=1).count() > 0:
             logger.debug('{email} 昵称已被其他用户注册'.format(email=email))
             return '邮箱已被其他用户注册，请更换邮箱'
-        user_info.create(username=username, password=password, email=email)
+        user_info.create(username=username, password=password_md5, email=email, type=type)
         logger.info('新增用户：{user_info}'.format(user_info=user_info))
         return 'ok'
     except DataError:

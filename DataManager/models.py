@@ -38,7 +38,7 @@ class UserInfo(BaseTable):
     username = models.CharField('姓名',max_length=30)
     type = models.IntegerField('角色',default=1)
     email = models.EmailField('邮箱')
-    password = models.CharField('密码', max_length=20)
+    password = models.CharField('密码', max_length=50)
     status = models.IntegerField('有效/无效',default=1)
     objects = UserInfoManager()
 

@@ -1253,7 +1253,10 @@ form .form-group:last-child{padding-bottom:0;}
     display: block;line-height: 40px;border-top: 0px solid #E5E9EF;color: #FFFFFF;background: #09C;
     text-decoration:none;
     font-size: 14px;
-
+}
+.fixed-nav-list a:hover{
+    color: #FFFFFF;
+    text-decoration:none;
 }
 .fixed-nav:hover .fixed-nav-list{
     -webkit-transform: translateY(100%);
@@ -1286,6 +1289,7 @@ form .form-group:last-child{padding-bottom:0;}
     color: #FFFFFF;
     text-decoration:none;
 }
+
 
 .ul-menu {
     margin-top: 0;
