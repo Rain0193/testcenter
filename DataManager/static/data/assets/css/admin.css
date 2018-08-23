@@ -1300,3 +1300,42 @@ form .form-group:last-child{padding-bottom:0;}
     width:100%;display: inline-block;line-height: 40px;color: #FFFFFF;letter-spacing: 1px;padding-left: 15px;
     text-decoration:none;
 }
+
+.btn-record-day {
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: 'Arial';
+    color: #FFFFFF;
+    display: block;
+    background: #3eb0f7;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 50px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+.btn-record-total{
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: 'Arial';
+    color: #FFFFFF;
+    display: block;
+    background: #3eb0f7;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    float: left;
+}
+.charts-type{
+    border: 0px #FFFFFF;
+    margin-left: 20px;
+}

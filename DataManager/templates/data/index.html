@@ -28,8 +28,15 @@
                 <dd class="f12"><a style="text-decoration: none">事务调用量</a></dd>
             </dl>
         </div>
-
-        <div id="main" style="height:80%;width: 95%;margin-left: 2%; margin-top: 2%;"></div>
+{#        <div class="btn-record btn-record-day" >近12天事务调用量</div>#}
+{#        <div class="btn-record btn-record-total">事务历史调用量</div>#}
+{#        <div class="charts-btn">#}
+{#            <button class="charts-type"><i class="iconfont icon-blue" onclick="charts('line')">&#xe628;</i></button>#}
+{#        </div>#}
+{#        <div class="charts-btn">#}
+{#            <button class="charts-type"><i class="iconfont icon-red" onclick="charts('column')">&#xe62a;</i></button>#}
+{#        </div>#}
+        <div id="container" style="height:80%;width: 96%;margin-right: 2%; margin-top: 1%;float: right"></div>
 
     </div>
     <meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
@@ -43,43 +50,48 @@
 
 
     <script>
+        $(document).ready(function() {
+            charts('line')
+        })
 
-        var chart = Highcharts.chart('main',{
-            chart: {
-                type: 'column'
-            },
-            title: {
-                text: '每日事务调用量统计'
-            },
-            xAxis: {
-                categories: get_date_xAxis(),
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
+        function charts(type) {
+            var chart = Highcharts.chart('container',{
+                chart: {
+                    type: type
+                },
                 title: {
-                    text: '调用量 (个)'
-                }
-            },
-            tooltip: {
-                // head + 每个 point + footer 拼接成完整的 table
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y} 个</b></td></tr>',
-                footerFormat: '</table>',
-                shared: true,
-                useHTML: true
-            },
-            plotOptions: {
-                column: {
-                    borderWidth: 0
-                }
-            },
-            series: [{
-                name: '事务调用量',
-                data: {{ total.yDatas }}
-            }]
-        });
+                    text: '近12天事务调用量'
+                },
+                xAxis: {
+                    categories: get_date_xAxis(),
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: '调用量 (个)'
+                    }
+                },
+                tooltip: {
+                    // head + 每个 point + footer 拼接成完整的 table
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y} 个</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: '事务调用量',
+                    data: {{ total.yDatas }}
+                }]
+            });
+        }
 
         function get_date_xAxis() {
             var data = [];

@@ -6,6 +6,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="736bbfd8-ab05-4073-81f2-c921381d36f6" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataManager/templates/data/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/DataManager/templates/data/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,12 +37,39 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataManager/templates/data/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+            <state relative-caret-position="132">
+              <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="37" selection-end-column="18" />
               <folding>
                 <element signature="e#1392#1421#0#HTML" expanded="true" />
-                <element signature="e#1494#1558#0#HTML" expanded="true" />
+                <element signature="e#1965#2039#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="431">
+              <caret line="1339" column="22" selection-start-line="1339" selection-start-column="22" selection-end-line="1339" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project_list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DataManager/templates/data/project_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="73" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -65,24 +94,6 @@
               <folding>
                 <element signature="e#24#38#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="register.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ApiManager/templates/api/register.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3318">
-              <caret line="91" column="32" selection-start-line="91" selection-start-column="32" selection-end-line="91" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="all_td.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DataManager/templates/data/all_td.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="63" column="46" selection-start-line="63" selection-start-column="46" selection-end-line="63" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -115,15 +126,6 @@
         <entry file="file://$PROJECT_DIR$/DataManager/managers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-345" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="device_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/DeviceManager/templates/device/device_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3194">
-              <caret line="19" column="119" selection-start-line="19" selection-start-column="119" selection-end-line="19" selection-end-column="119" />
-            </state>
           </provider>
         </entry>
       </file>
@@ -201,7 +203,6 @@
         <option value="$PROJECT_DIR$/DeviceManager/static/device/assets/js/commons.js" />
         <option value="$PROJECT_DIR$/DataManager/static/data/assets/js/dialog.js" />
         <option value="$PROJECT_DIR$/DeviceManager/static/device/assets/css/common.css" />
-        <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" />
         <option value="$PROJECT_DIR$/DeviceManager/static/device/assets/css/device_list.css" />
         <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/all_td.css" />
         <option value="$PROJECT_DIR$/DataManager/templates/data/my_fav.html" />
@@ -220,7 +221,6 @@
         <option value="$PROJECT_DIR$/DeviceManager/views.py" />
         <option value="$PROJECT_DIR$/DataManager/templates/data/register.html" />
         <option value="$PROJECT_DIR$/DataManager/templates/data/login.html" />
-        <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" />
         <option value="$PROJECT_DIR$/DataManager/utils/operation.py" />
         <option value="$PROJECT_DIR$/DataManager/models.py" />
         <option value="$PROJECT_DIR$/ApiManager/views.py" />
@@ -234,6 +234,8 @@
         <option value="$PROJECT_DIR$/DeviceManager/templates/device/device_list.html" />
         <option value="$PROJECT_DIR$/DataManager/views.py" />
         <option value="$PROJECT_DIR$/DataManager/utils/common.py" />
+        <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" />
         <option value="$PROJECT_DIR$/DataManager/templates/data/index.html" />
       </list>
     </option>
@@ -271,6 +273,36 @@
               <item name="qacenter" type="b2602c69:ProjectViewProjectNode" />
               <item name="qacenter" type="462c0819:PsiDirectoryNode" />
               <item name="DataManager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qacenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qacenter" type="462c0819:PsiDirectoryNode" />
+              <item name="DataManager" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qacenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qacenter" type="462c0819:PsiDirectoryNode" />
+              <item name="DataManager" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qacenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qacenter" type="462c0819:PsiDirectoryNode" />
+              <item name="DataManager" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="qacenter" type="b2602c69:ProjectViewProjectNode" />
+              <item name="qacenter" type="462c0819:PsiDirectoryNode" />
+              <item name="DataManager" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="qacenter" type="b2602c69:ProjectViewProjectNode" />
@@ -876,13 +908,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/DataManager/templates/data/my_fav.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="138" column="115" selection-start-line="138" selection-start-column="115" selection-end-line="138" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataManager/templates/data/module_td.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="184">
@@ -1056,13 +1081,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="1254" column="20" selection-start-line="1254" selection-start-column="20" selection-end-line="1254" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ApiManager/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
@@ -1172,11 +1190,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataManager/templates/data/project_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2760" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DeviceManager/templates/device/device_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3194">
@@ -1243,13 +1256,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataManager/templates/data/index.html">
+    <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataManager/templates/data/project_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
-          <caret line="67" column="50" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
+          <caret line="69" column="24" selection-start-line="69" selection-start-column="24" selection-end-line="73" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="431">
+          <caret line="1339" column="22" selection-start-line="1339" selection-start-column="22" selection-end-line="1339" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataManager/templates/data/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="37" selection-end-column="18" />
           <folding>
             <element signature="e#1392#1421#0#HTML" expanded="true" />
-            <element signature="e#1494#1558#0#HTML" expanded="true" />
+            <element signature="e#1965#2039#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
