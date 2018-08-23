@@ -1338,4 +1338,8 @@ form .form-group:last-child{padding-bottom:0;}
 .charts-type{
     border: 0px #FFFFFF;
     margin-left: 20px;
+    background: #f1f2f7;
+}
+.charts-type :hover{
+    background: #394555;
 }

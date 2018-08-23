@@ -7,7 +7,6 @@
   <component name="ChangeListManager">
     <list default="true" id="736bbfd8-ab05-4073-81f2-c921381d36f6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" beforeDir="false" afterPath="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DataManager/templates/data/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/DataManager/templates/data/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DataManager/templates/data/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="37" selection-end-column="18" />
+            <state relative-caret-position="224">
+              <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="38" />
               <folding>
                 <element signature="e#1392#1421#0#HTML" expanded="true" />
                 <element signature="e#1965#2039#0#HTML" expanded="true" />
@@ -47,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="1339" column="22" selection-start-line="1339" selection-start-column="22" selection-end-line="1339" selection-end-column="22" />
+            <state relative-caret-position="362">
+              <caret line="1343" column="23" selection-start-line="1343" selection-start-column="23" selection-end-line="1343" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -235,8 +234,8 @@
         <option value="$PROJECT_DIR$/DataManager/views.py" />
         <option value="$PROJECT_DIR$/DataManager/utils/common.py" />
         <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/common.css" />
-        <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" />
         <option value="$PROJECT_DIR$/DataManager/templates/data/index.html" />
+        <option value="$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css" />
       </list>
     </option>
   </component>
@@ -1270,21 +1269,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="1339" column="22" selection-start-line="1339" selection-start-column="22" selection-end-line="1339" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/DataManager/templates/data/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="32" column="36" lean-forward="true" selection-start-line="32" selection-start-column="36" selection-end-line="37" selection-end-column="18" />
+        <state relative-caret-position="224">
+          <caret line="36" column="38" lean-forward="true" selection-start-line="36" selection-start-column="27" selection-end-line="36" selection-end-column="38" />
           <folding>
             <element signature="e#1392#1421#0#HTML" expanded="true" />
             <element signature="e#1965#2039#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DataManager/static/data/assets/css/admin.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="1343" column="23" selection-start-line="1343" selection-start-column="23" selection-end-line="1343" selection-end-column="23" />
         </state>
       </provider>
     </entry>
