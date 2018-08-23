@@ -54,6 +54,10 @@
         app.title = '折柱混合';
 
         option = {
+            title : {
+                text: '每日事务调用量统计'
+            },
+
             tooltip: {
                 trigger: 'axis',
                 axisPointer: {
@@ -64,7 +68,9 @@
                 }
             },
             toolbox: {
+                show : true,
                 feature: {
+                    mark : {show: true},
                     dataView: {show: false, readOnly: false},
                     magicType: {show: true, type: ['line', 'bar']},
                     restore: {show: true},
@@ -72,8 +78,9 @@
                 }
             },
             legend: {
-                data: ['失败用例', '成功用例', '通过率']
+                data: ['事务调用量']
             },
+            calculable : true,
             xAxis: [
                 {
                     type: 'category',
@@ -86,55 +93,27 @@
             yAxis: [
                 {
                     type: 'value',
-                    name: '个数',
-                    min: 0,
-                    max: 100,
-                    interval: 10,
-                    axisLabel: {
-                        formatter: '{value} '
-                    }
-                },
-                {
-                    type: 'value',
-                    name: '成功率',
-                    min: 0,
-                    max: 100,
-                    interval: 10,
-                    axisLabel: {
-                        formatter: '% {value}'
-                    }
+                    data: []
                 }
             ],
             series: [
                 {
-                    name: '失败用例',
-                    type: 'bar',
-                    data: []
-                },
-                {
-                    name: '通过率',
+                    name: '事务调用量',
                     type: 'line',
-                    yAxisIndex: 1,
-                    data: []
-                },
-                {
-                    name: '成功用例',
-                    type: 'bar',
-                    data: []
+                    data: [],
+                    markPoint : {
+                        data : [
+                            {type : 'max', name: '最大值'},
+                            {type : 'min', name: '最小值'}
+                        ]
+                    }
                 }
             ]
         };
         if (option && typeof option === "object") {
             var xAxis_data = get_date_xAxis();
             option.xAxis[0].data = xAxis_data;
-
-            var max_fail = Math.max.apply(null, option.series[0].data);
-            var max_pass = Math.max.apply(null, option.series[2].data);
-
-            if (Math.max(max_fail, max_pass) > 100) {
-                option.yAxis[0].max = Math.max(max_fail, max_pass) + 10;
-                option.yAxis[0].interval = parseInt(Math.max(max_fail, max_pass) / 10);
-            }
+            option.series[0].data = {{ total.yDatas }};
             myChart.setOption(option, true);
         }
 

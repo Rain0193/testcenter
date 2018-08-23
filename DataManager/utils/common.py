@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 import logging
+import datetime
 
 from DataManager.utils.operation import add_register_data, add_project_data, add_module_data, add_td_data, add_record_data
 
-from DataManager.models import ModuleInfo
+from DataManager.models import ModuleInfo, Record
 
 logger = logging.getLogger('qacenter')
 
@@ -156,3 +157,22 @@ def record_info_logic(**kwargs):
     :return:
     """
     return add_record_data(**kwargs)
+
+
+def get_total_values():
+    total = {
+        'yDatas': []
+    }
+    today = datetime.date.today()
+    for i in range(-11, 1):
+        begin = today + datetime.timedelta(days=i)
+        end = begin + datetime.timedelta(days=1)
+
+        pv = Record.objects.filter(create_time__range=(begin, end)).count()
+
+        if not pv:
+            pv = 0
+
+        total['yDatas'].append(pv)
+
+    return total

@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response, render
 from urllib3.connectionpool import xrange
 
 from DataManager.models import UserInfo, ProjectInfo, ModuleInfo, TdInfo, FavTd, Record
-from DataManager.utils.common import register_info_logic, get_ajax_msg, init_filter_session, project_info_logic, set_filter_session, module_info_logic, td_info_logic, record_info_logic
+from DataManager.utils.common import register_info_logic, get_ajax_msg, init_filter_session, project_info_logic, set_filter_session, module_info_logic, td_info_logic, record_info_logic, get_total_values
 from DataManager.utils.httpGet import httpGet
 from DataManager.utils.operation import del_project_data, del_module_data, add_fav_data, add_td_pv, projectAndModule, del_td_data
 from DataManager.utils.pagination import get_pager_info
@@ -49,6 +49,7 @@ def login(request):
         else:
             logger.info('{username} 登录失败, 请检查用户名或者密码'.format(username=username))
             request.session["login_status"] = False
+            # return HttpResponse("用户名或密码错误")
             return render_to_response("data/login.html")
     elif request.method == 'GET':
         return render_to_response("data/login.html")
@@ -97,6 +98,8 @@ def index(request):
     project_count = ProjectInfo.objects.count()
     td_count = TdInfo.objects.count()
     record_count = Record.objects.count()
+    total = get_total_values()
+
     if request.method == 'GET':
         manage_info = {
             'account': account,
@@ -105,8 +108,8 @@ def index(request):
             'user_count': user_count,
             'project_count': project_count,
             'td_count': td_count,
-            'record_count': record_count
-
+            'record_count': record_count,
+            'total': total
         }
         return render_to_response('data/index.html', manage_info)
 
