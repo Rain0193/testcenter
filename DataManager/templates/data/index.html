@@ -29,93 +29,57 @@
             </dl>
         </div>
 
-        <div id="main" style="height:80%; margin-top: 5%;"></div>
+        <div id="main" style="height:80%;width: 95%;margin-left: 2%; margin-top: 2%;"></div>
 
     </div>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/echarts.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-gl/echarts-gl.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts-stat/ecStat.min.js"></script>
+    <meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* css 代码  */
+    </style>
+    <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+    <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+    <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
 
-    <script src="http://cdn.amazeui.org/amazeui/2.7.2/js/amazeui.min.js"></script>
 
-    <script type="text/javascript"
-            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/dataTool.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/china.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/echarts/map/js/world.js"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=ZUONbpqGBsYGXNIYHicvbAbM"></script>
-    <script type="text/javascript"
-            src="http://echarts.baidu.com/gallery/vendors/echarts/extension/bmap.min.js"></script>
-    <script type="text/javascript" src="http://echarts.baidu.com/gallery/vendors/simplex.js"></script>
     <script>
-        var dom = document.getElementById("main");
-        var myChart = echarts.init(dom);
-        var app = {};
-        option = null;
-        app.title = '折柱混合';
 
-        option = {
-            title : {
-                text: '每日事务调用量统计'
+        var chart = Highcharts.chart('main',{
+            chart: {
+                type: 'column'
             },
-
+            title: {
+                text: '每日事务调用量'
+            },
+            xAxis: {
+                categories: get_date_xAxis(),
+                crosshair: true
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: '调用量 (个)'
+                }
+            },
             tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    crossStyle: {
-                        color: '#999'
-                    }
+                // head + 每个 point + footer 拼接成完整的 table
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
+            },
+            plotOptions: {
+                column: {
+                    borderWidth: 0
                 }
             },
-            toolbox: {
-                show : true,
-                feature: {
-                    mark : {show: true},
-                    dataView: {show: false, readOnly: false},
-                    magicType: {show: true, type: ['line', 'bar']},
-                    restore: {show: true},
-                    saveAsImage: {show: true}
-                }
-            },
-            legend: {
-                data: ['事务调用量']
-            },
-            calculable : true,
-            xAxis: [
-                {
-                    type: 'category',
-                    data: [],
-                    axisPointer: {
-                        type: 'shadow'
-                    }
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    data: []
-                }
-            ],
-            series: [
-                {
-                    name: '事务调用量',
-                    type: 'line',
-                    data: [],
-                    markPoint : {
-                        data : [
-                            {type : 'max', name: '最大值'},
-                            {type : 'min', name: '最小值'}
-                        ]
-                    }
-                }
-            ]
-        };
-        if (option && typeof option === "object") {
-            var xAxis_data = get_date_xAxis();
-            option.xAxis[0].data = xAxis_data;
-            option.series[0].data = {{ total.yDatas }};
-            myChart.setOption(option, true);
-        }
+            series: [{
+                name: '事务调用量',
+                data: {{ total.yDatas }}
+            }]
+        });
 
         function get_date_xAxis() {
             var data = [];
