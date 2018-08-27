@@ -108,12 +108,12 @@ Key Features
 11、数据工厂进入到接口自动化平台
 ![nav_list](https://github.com/Debugback/testcenter/blob/master/DataManager/images/floor.png)<br>
 <br>
-12、数据工厂进入到接口自动化平台
+12、设备管理系统设备列表
 ![设备列表](https://github.com/Debugback/testcenter/blob/master/DeviceManager/images/device_list.png)<br>
 <br>
-13、数据工厂进入到接口自动化平台
+13、设备管理系统设备借出、归还操作
 ![借出](https://github.com/Debugback/testcenter/blob/master/DeviceManager/images/lend.png)<br>
 <br>
-14、数据工厂进入到接口自动化平台
+14、设备管理系统操作记录：新增、编辑、删除设备，借出、归还
 ![操作记录](https://github.com/Debugback/testcenter/blob/master/DeviceManager/images/operate_record.png)<br>
 <br>
