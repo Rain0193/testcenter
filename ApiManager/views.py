@@ -55,9 +55,11 @@ def login(request):
         password_md5 = hashlib.md5(password.encode(encoding='utf-8')).hexdigest()
 
         if UserInfo.objects.filter(username__exact=username).filter(password__exact=password_md5).count() == 1:
+            role = UserInfo.objects.filter(username__exact=username)[0].type
             logger.info('{username} 登录成功'.format(username=username))
             request.session["login_status"] = True
             request.session["now_account"] = username
+            request.session["role"] = role
             return HttpResponseRedirect('/http/api/index/')
         else:
             logger.info('{username} 登录失败, 请检查用户名或者密码'.format(username=username))
