@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+from __future__ import absolute_import, unicode_literals
 import os
 
 import djcelery
@@ -39,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 注册自己的APP
+    # 注册自己的AP
+    'djcelery',
     'DataManager',
     'ApiManager',
     'DeviceManager',
-    'djcelery',
 ]
 
 MIDDLEWARE = [
@@ -119,9 +120,9 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'NAME': 'qacenter2',  # 新建数据库名
+            'NAME': 'qacenter',  # 新建数据库名
             'USER': 'root',  # 数据库登录名
-            'PASSWORD': '123456',  # 数据库登录密码
+            'PASSWORD': '12345678',  # 数据库登录密码
             'HOST': '127.0.0.1',  # 数据库所在服务器ip地址
             'PORT': '3306',  # 监听端口 默认3306即可
         }
@@ -177,8 +178,8 @@ CELERYD_CONCURRENCY = 1 if DEBUG else 10 # celery worker的并发数 也是命�
 CELERYD_MAX_TASKS_PER_CHILD = 100  # 每个worker执行了多少任务就会死掉，我建议数量可以大一些，比如200
 
 
-EMAIL_SEND_USERNAME = 'quanwang.yin@hstong.com'  # 定时任务报告发送邮箱，支持163,qq,sina,企业qq邮箱等，注意需要开通smtp服务
-EMAIL_SEND_PASSWORD = 'TANGxinbing135!'     # 邮箱密码
+EMAIL_SEND_USERNAME = 'wangyg@gegejia.com'  # 定时任务报告发送邮箱，支持163,qq,sina,企业qq邮箱等，注意需要开通smtp服务
+EMAIL_SEND_PASSWORD = 'Wang236856261'     # 邮箱密码
 
 LOGGING = {
     'version': 1,
