@@ -6,9 +6,9 @@
     right: 50px;
     width: 700px;
     height: 78%;
-    overflow: hidden;
     padding-top:10px;
     padding-bottom:30px;
+    overflow: auto;
 }
 
 .form-header{
