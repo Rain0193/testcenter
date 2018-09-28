@@ -37,7 +37,7 @@ logger = logging.getLogger('HttpRunnerManager')
 def login_check(func):
     def wrapper(request, *args, **kwargs):
         if not request.session.get('login_status'):
-            return HttpResponseRedirect('/http/api/login/')
+            return HttpResponseRedirect('/qacenter/data/login/')
         return func(request, *args, **kwargs)
 
     return wrapper
