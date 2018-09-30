@@ -107,6 +107,9 @@ def del_device_lender(id, account):
     operater = account
     try:
         belong_device = device_opt.get_device_by_id(id)
+        device_lender = belong_device.lender
+        if device_lender == '':
+            return '设备并未出借，无需归还'
         if operater == belong_device.belonger:
             device_opt.clear_lender(id)
         else:
@@ -141,6 +144,8 @@ def update_device_lender(id, lender, account):
         device_lender = belong_device.lender
         if device_lender != '':
             return '该设备已借出，请先操作归还，再出借'
+        if lender == '':
+            return '请填写出借人'
         if operater == belong_device.belonger:
             device_opt.update_lender(id, lender)
         else:
