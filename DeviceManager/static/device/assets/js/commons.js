@@ -36,7 +36,7 @@ function info_ajax(id, url) {
         data: JSON.stringify(data),
         contentType: "application/json",
         success: function (data) {
-            if (data.indexOf('/device/dc/device_list/') !== -1) {
+            if (data.indexOf('成功') !== -1) {
                 myAlertSuccess(data);
             }
             else {
@@ -59,8 +59,8 @@ function add_device(id, url) {
         data: JSON.stringify(data),
         contentType: "application/json",
         success: function (data) {
-            if (data.indexOf('成功') !== -1) {
-                myAlertSuccess(data);
+            if (data.indexOf('/device/dc/device_list/') !== -1) {
+                myAlertSuccess('添加成功');
             }
             else {
                 myAlertFail(data);
