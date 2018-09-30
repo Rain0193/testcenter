@@ -36,6 +36,29 @@ function info_ajax(id, url) {
         data: JSON.stringify(data),
         contentType: "application/json",
         success: function (data) {
+            if (data.indexOf('/device/dc/device_list/') !== -1) {
+                myAlertSuccess(data);
+            }
+            else {
+                myAlertFail(data);
+            }
+        },
+        error: function () {
+            myAlertFail('Sorry，服务器可能开小差啦, 请重试!');
+        }
+    });
+
+}
+
+/*表单信息异步传输*/
+function add_device(id, url) {
+    var data = $(id).serializeJSON();
+    $.ajax({
+        type: 'post',
+        url: url,
+        data: JSON.stringify(data),
+        contentType: "application/json",
+        success: function (data) {
             if (data.indexOf('成功') !== -1) {
                 myAlertSuccess(data);
             }
