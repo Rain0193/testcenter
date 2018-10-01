@@ -13,6 +13,7 @@
     <link href="{% static "/data/assets/css/common.css" %}" rel="stylesheet" media="screen">
     <link href="{% static "/data/assets/css/login.css" %}" rel="stylesheet" media="screen">
     <script src="{% static 'data/assets/js/md5.js' %}"></script>
+    <script src="{% static 'data/assets/js/dialog.js' %}"></script>
     <link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
 
     <style>
@@ -45,13 +46,21 @@
                 <span class="fr">没有账号？</span>
             </div>
             <div class="login-button-div">
-                <input type="submit" id="login" class="login-button" value="登录">
+                <input type="button" id="login" class="login-button" value="登录" onclick="login_ajax('#login_form')">
+{#                <input type="button" id="login" class="login-button" value="登录">#}
             </div>
         </form>
     </div>
 
+    <div id="td-res-dialog" class="td-res-dialog res-dialog">
+        <div class="succ-icon"><i class="iconfont icon-succ">&#xe635;</i></div>
+        <div id="Canvas" class="Canvas"></div>
+        <div class="confirm-btn-row"><a id="J_dialog_del" class="confirm-btn btn" onclick="location.reload()">确定 (3s)</a></div>
+    </div>
+
 <!-- /.javascript files -->
 <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/jquery.serializeJSON/2.9.0/jquery.serializejson.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
 
@@ -99,7 +108,7 @@
         var user = $("input[name='account']").val();
         var password = $("input[name='password']").val();
         var isSave = $("input[name='savePwd']").is(':checked');
-        $("#password").val(hex_md5($("#password").val()));
+        {#$("#password").val(hex_md5($("#password").val()));#}
         if (isSave) {
             localStorage.setItem("QACENTER_USER", user);
             localStorage.setItem("QACENTER_PWD", password);
@@ -107,6 +116,49 @@
             localStorage.removeItem("QACENTER_PWD");
         }
     })
+
+
+    /*表单信息异步传输*/
+    function login_ajax(id) {
+        {#if ($(id).data('bootstrapValidator').isValid()) {#}
+            var data = $(id).serializeJSON();
+            var url;
+            if (id === "#login_form") {
+                url = '/qacenter/data/login/';
+            }
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: JSON.stringify(data),
+                contentType: "application/json",
+                success: function (data) {
+                    if (data.indexOf('登录成功') !== -1) {
+                        window.location.href = '/qacenter/data/index/';
+                    } else {
+                        myAlertFail(data);
+                    }
+                },
+                error: function () {
+                    myAlertFail('Sorry，服务器可能开小差啦, 请重试!')
+                }
+            });
+    }
+
+
+/*提示 弹出*/
+function myAlertFail(data) {
+    dialog.init({
+        dialogId: 'myAlert',
+        msg: data,
+        type: 4
+    });
+    var t=setTimeout(next,2000);
+    function next()
+    {
+        dialog.hide();
+        window.location.reload();
+    }
+}
 </script>
 
 </body>

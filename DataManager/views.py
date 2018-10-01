@@ -34,24 +34,28 @@ def login(request):
     :param request:
     :return:
     """
-    if request.method == 'POST':
-        username = request.POST.get('account')
-        password = request.POST.get('password')
-        # password_md5 = hashlib.md5(password.encode(encoding='utf-8')).hexdigest()
+    if request.is_ajax():
+        user_info = json.loads(request.body.decode('utf-8'))
+        username = user_info.get('account')
+        password = user_info.get('password')
+        password_md5 = hashlib.md5(password.encode(encoding='utf-8')).hexdigest()
 
-        # if UserInfo.objects.filter(username__exact=username).filter(password__exact=password_md5).count() == 1:
-        if UserInfo.objects.filter(username__exact=username).filter(password__exact=password).count() == 1:
+        if UserInfo.objects.filter(username__exact=username).filter(password__exact=password_md5).count() == 1:
             role = UserInfo.objects.filter(username__exact=username)[0].type
             logger.info('{username} 登录成功'.format(username=username))
             request.session["login_status"] = True
             request.session["now_account"] = username
             request.session["role"] = role
-            return HttpResponseRedirect('/qacenter/data/index/')
+            msg = '登录成功'
+            return HttpResponse(get_ajax_msg(msg, 'ok'))
+            # return HttpResponseRedirect('/qacenter/data/index/')
         else:
             logger.info('{username} 登录失败, 请检查用户名或者密码'.format(username=username))
             request.session["login_status"] = False
             # return HttpResponse("用户名或密码错误")
-            return render_to_response("data/login.html")
+            # return render_to_response("data/login.html")
+            msg = '登录失败, 请检查用户名或者密码'
+            return HttpResponse(get_ajax_msg(msg, 'ok'))
     elif request.method == 'GET':
         return render_to_response("data/login.html")
 

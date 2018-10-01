@@ -102,3 +102,24 @@ body {
     float:right;
 }
 
+.res-dialog{
+	display: none;
+}
+    .res-dialog .confirm-btn{
+		width: 50%;
+		text-align: center;
+		margin-left: 100px;
+	}
+
+.succ-icon{
+	text-align:center;
+}
+    .succ-icon .icon-succ{
+	color:#94C050;
+	font-size: 40px;
+	}
+
+.confirm-btn-row{
+	margin-left: 250px;
+}
+
