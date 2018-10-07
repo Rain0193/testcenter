@@ -12,6 +12,7 @@
     <!-- Colors -->
     <link href="{% static "data/assets/css/common.css" %}" rel="stylesheet" media="screen">
     <link href="{% static "data/assets/css/register.css" %}" rel="stylesheet" media="screen">
+    <script src="{% static 'data/assets/js/md5.js' %}"></script>
 
     <link href="https://cdn.bootcss.com/bootstrap-validator/0.5.3/css/bootstrapValidator.css" rel="stylesheet">
 
@@ -149,7 +150,14 @@
     /*表单信息异步传输*/
     function register_ajax(id) {
         if ($(id).data('bootstrapValidator').isValid()) {
-            var data = $(id).serializeJSON();
+            {#var data = $(id).serializeJSON();#}
+            var data = {
+                'email': $("input[name='email']").val(),
+                'type': $("select[name='type']").val(),
+                'username': $("input[name='username']").val(),
+                'password': hex_md5($("input[name='password']").val()),
+                'repassword': hex_md5($("input[name='repassword']").val())
+            }
             var url;
             if (id === "#register_form") {
                 url = '/qacenter/data/register/';

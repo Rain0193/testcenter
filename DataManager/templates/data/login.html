@@ -120,8 +120,11 @@
 
     /*表单信息异步传输*/
     function login_ajax(id) {
-        {#if ($(id).data('bootstrapValidator').isValid()) {#}
-            var data = $(id).serializeJSON();
+            {#var data = $(id).serializeJSON();#}
+            var data = {
+                'account': $("input[name='account']").val(),
+                'password': hex_md5($("input[name='password']").val())
+            }
             var url;
             if (id === "#login_form") {
                 url = '/qacenter/data/login/';
