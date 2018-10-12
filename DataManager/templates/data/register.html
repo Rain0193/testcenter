@@ -18,10 +18,10 @@
 
     <style>
         body {
-            margin: 0;
-            background: url({% static "data/assets/img/main_bg.jpg" %}) repeat;
-            -moz-background-size: 100% 100%;
-            background-size: 100% 100%;
+            margin: 0 !important;
+            background: url({% static "data/assets/img/main_bg.jpg" %}) repeat !important;
+            -moz-background-size: 100% 100% !important;
+            background-size: 100% 100% !important;
         }
     </style>
 
@@ -61,8 +61,9 @@
                 <input type="button" id="register" class="register-button" value="注册" onclick="register_ajax('#register_form')">
             </div>
             <div class="register-btm-div">
-                <span class="fr"><a href="/qacenter/data/login/" class="fgt-pwd-btn">去登录</a></span>
+                <span class="forget-password"><a href="/qacenter/data/forget_password" class="fgt-pwd-btn">忘记密码?</a></span>
                 <span class="fr">已经注册？</span>
+                <span class="fr"><a href="/qacenter/data/login/" class="fgt-pwd-btn">去登录</a></span>
             </div>
         </form>
     </div>

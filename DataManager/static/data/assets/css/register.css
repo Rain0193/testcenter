@@ -93,9 +93,11 @@ body {
     color:#56ACEE;
 }
 .fl{
-    float:left;
-}
-.fr{
     float:right;
 }
-
+.fr{
+    float:left;
+}
+.forget-password{
+    float:right;
+}

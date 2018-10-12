@@ -6,6 +6,8 @@ from DataManager.models import UserInfo, ProjectInfo, ModuleInfo, TdInfo, FavTd,
 from django.db import DataError
 from django.core.exceptions import ObjectDoesNotExist
 from urllib3.connectionpool import xrange
+from DataManager.utils.randomPassword import random_password
+from DataManager.utils.emails import send_password
 
 logger = logging.getLogger('qacenter')
 
@@ -62,6 +64,28 @@ def reset_password_data(**kwargs):
         logger.error('信息输入有误：{user_info}'.format(user_info=user_info))
         return '字段长度超长，请重新编辑'
 
+
+def forget_password_data(**kwargs):
+    """
+    忘记密码信息落地
+    :param kwargs: dict
+    :return: ok or tips
+    """
+    user_info = UserInfo.objects
+    try:
+        email = kwargs.pop('email')
+        if user_info.filter(email=email).count() == 0:
+            logger.debug('{username} 邮箱未注册'.format(email=email))
+            return '邮箱未注册'
+        else:
+            new_password = random_password()
+            new_password_md5 = hashlib.md5(new_password.encode(encoding='utf-8')).hexdigest()
+            user_info.update_password_by_email(email, new_password_md5)
+            send_password(email, new_password)
+        return '密码已发送至邮箱，请查收'
+    except DataError:
+        logger.error('信息输入有误：{user_info}'.format(user_info=user_info))
+        return '字段长度超长，请重新编辑'
 
 
 def add_project_data(type, **kwargs):

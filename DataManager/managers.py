@@ -17,6 +17,11 @@ class UserInfoManager(models.Manager):
         obj.password = password
         obj.save()
 
+    def update_password_by_email(self, email, password):
+        obj = self.get(email=email)
+        obj.password = password
+        obj.save()
+
 
 '''项目信息表操作'''
 

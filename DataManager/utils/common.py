@@ -2,7 +2,7 @@
 import logging
 import datetime
 
-from DataManager.utils.operation import add_register_data, add_project_data, add_module_data, add_td_data, add_record_data, reset_password_data
+from DataManager.utils.operation import add_register_data, add_project_data, add_module_data, add_td_data, add_record_data, reset_password_data, forget_password_data
 
 from DataManager.models import ModuleInfo, Record
 
@@ -54,6 +54,20 @@ def reset_password_info_logic(**kwargs):
         return '新密码不能为空'
 
     return reset_password_data(**kwargs)
+
+
+def forget_password_info_logic(**kwargs):
+    """
+       忘记密码信息逻辑处理
+       :param kwargs: dict: 邮箱信息
+       :return:
+       """
+    if kwargs.get('email') is '':
+        return '邮箱不能为空'
+
+    return forget_password_data(**kwargs)
+
+
 
 def project_info_logic(type=True, **kwargs):
     """

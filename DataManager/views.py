@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response, render
 from urllib3.connectionpool import xrange
 
 from DataManager.models import UserInfo, ProjectInfo, ModuleInfo, TdInfo, FavTd, Record
-from DataManager.utils.common import register_info_logic, get_ajax_msg, init_filter_session, project_info_logic, set_filter_session, module_info_logic, td_info_logic, record_info_logic, get_total_values, reset_password_info_logic
+from DataManager.utils.common import register_info_logic, get_ajax_msg, init_filter_session, project_info_logic, set_filter_session, module_info_logic, td_info_logic, record_info_logic, get_total_values, reset_password_info_logic, forget_password_info_logic
 from DataManager.utils.httpGet import httpGet
 from DataManager.utils.operation import del_project_data, del_module_data, add_fav_data, add_td_pv, projectAndModule, del_td_data
 from DataManager.utils.pagination import get_pager_info
@@ -91,9 +91,8 @@ def register(request):
     elif request.method == 'GET':
         return render_to_response("data/register.html")
 
-
+@login_check
 def reset_password(request):
-
     """
     修改密码
     :param request:
@@ -102,8 +101,8 @@ def reset_password(request):
     projectlist = projectAndModule
     account = request.session["now_account"]
     if request.is_ajax():
-        project_info = json.loads(request.body.decode('utf-8'))
-        msg = reset_password_info_logic(**project_info)
+        reset_info = json.loads(request.body.decode('utf-8'))
+        msg = reset_password_info_logic(**reset_info)
         return HttpResponse(get_ajax_msg(msg, '/qacenter/data/login'))
 
     elif request.method == 'GET':
@@ -113,6 +112,20 @@ def reset_password(request):
             'projects': projectlist
         }
         return render_to_response('data/reset_password.html', manage_info)
+
+
+def forget_password(request):
+    """
+    忘记密码
+    :param request:
+    :return:
+    """
+    if request.is_ajax():
+        forget_info = json.loads(request.body.decode('utf-8'))
+        msg = forget_password_info_logic(**forget_info)
+        return HttpResponse(get_ajax_msg(msg, '/qacenter/data/login'))
+    elif request.method == 'GET':
+        return render_to_response('data/forget_password.html')
 
 
 @login_check
