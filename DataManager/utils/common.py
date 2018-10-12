@@ -2,7 +2,7 @@
 import logging
 import datetime
 
-from DataManager.utils.operation import add_register_data, add_project_data, add_module_data, add_td_data, add_record_data
+from DataManager.utils.operation import add_register_data, add_project_data, add_module_data, add_td_data, add_record_data, reset_password_data
 
 from DataManager.models import ModuleInfo, Record
 
@@ -41,6 +41,19 @@ def init_filter_session(request, type=True):
         del request.session['name']
         del request.session['belong_project']
         del request.session['belong_module']
+
+def reset_password_info_logic(**kwargs):
+    """
+    修改密码信息逻辑处理
+    :param kwargs: dict: 密码信息
+    :return:
+    """
+    if kwargs.get('old_password') == 'd41d8cd98f00b204e9800998ecf8427e':
+        return '旧密码不能为空'
+    if kwargs.get('new_password') == 'd41d8cd98f00b204e9800998ecf8427e':
+        return '新密码不能为空'
+
+    return reset_password_data(**kwargs)
 
 def project_info_logic(type=True, **kwargs):
     """

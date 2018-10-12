@@ -1239,10 +1239,26 @@ form .form-group:last-child{padding-bottom:0;}
 .fixed-logout{
     position: absolute;right: 0;top: 0;bottom: 0;line-height: 50px;font-size: 12px;color: #FFFFFF;
 }
-.fixed-logout a{
+/*.fixed-logout a{*/
+    /*display: inline-block;width: 90px;height: 30px;background: #FF8900;color: #FFF;border-radius: 4px;line-height: 30px;text-align: center;*/
+    /*letter-spacing: 2px;margin: 0 20px;*/
+/*}*/
+
+
+.a-resetPwd{
     display: inline-block;width: 90px;height: 30px;background: #FF8900;color: #FFF;border-radius: 4px;line-height: 30px;text-align: center;
-    letter-spacing: 2px;margin: 0 20px;
+    letter-spacing: 2px;
+    margin-left: 10px;
+    margin-right: 5px;
 }
+
+.a-logout{
+    display: inline-block;width: 90px;height: 30px;background: #FF8900;color: #FFF;border-radius: 4px;line-height: 30px;text-align: center;
+    letter-spacing: 2px;
+    margin-right: 20px;
+}
+
+
 .fixed-nav-list{
     position: absolute;left: 0px;right: -1px;bottom: 0;z-index: -1;background: #FFF;border-right: 0px solid #E5E9EF;border-bottom: 0px solid #E5E9EF;
     -webkit-transform: translateY(0);

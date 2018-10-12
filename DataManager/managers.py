@@ -9,6 +9,14 @@ class UserInfoManager(models.Manager):
     def query_user(self, username, password):
         return self.filter(username__exact=username, password__exact=password).count()
 
+    def get_user_password(self, username):
+        return self.filter(username=username)
+
+    def update_password(self, username, password):
+        obj = self.get(username=username)
+        obj.password = password
+        obj.save()
+
 
 '''项目信息表操作'''
 

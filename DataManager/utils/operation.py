@@ -39,6 +39,31 @@ def add_register_data(**kwargs):
         return '字段长度超长，请重新编辑'
 
 
+def reset_password_data(**kwargs):
+    """
+    修改密码信息落地
+    :param kwargs: dict
+    :return: ok or tips
+    """
+    user_info = UserInfo.objects
+    try:
+        username = kwargs.pop('username')
+        old_password = kwargs.pop('old_password')
+        new_password = kwargs.pop('new_password')
+        if user_info.filter(username__exact=username).filter(status=1).count() == 0:
+            logger.debug('{username} 用户未注册'.format(username=username))
+            return '该用户未注册'
+        if old_password != user_info.get_user_password(username)[0].password:
+            return '老密码输入有误，请确认'
+        else:
+            user_info.update_password(username, new_password)
+        return '密码修改成功'
+    except DataError:
+        logger.error('信息输入有误：{user_info}'.format(user_info=user_info))
+        return '字段长度超长，请重新编辑'
+
+
+
 def add_project_data(type, **kwargs):
     """
     项目信息落地

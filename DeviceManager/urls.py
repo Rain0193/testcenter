@@ -20,7 +20,7 @@ from DeviceManager.activator import process
 
 app_name = 'DeviceManager'
 urlpatterns = [
-    url(r'^favicon\.ico$', RedirectView.as_view(url='/device/assets/img/favicon.ico')),
+    url(r'^favicon\.ico$', RedirectView.as_view(url='/assets/img/favicon.ico')),
     url(r'^(?P<app>(\w+))/(?P<function>(\w+))/$', process),
     url(r'^(?P<app>(\w+))/(?P<function>(\w+))/(?P<id>(\w+))/$', process),
 

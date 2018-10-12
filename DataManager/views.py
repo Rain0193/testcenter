@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response, render
 from urllib3.connectionpool import xrange
 
 from DataManager.models import UserInfo, ProjectInfo, ModuleInfo, TdInfo, FavTd, Record
-from DataManager.utils.common import register_info_logic, get_ajax_msg, init_filter_session, project_info_logic, set_filter_session, module_info_logic, td_info_logic, record_info_logic, get_total_values
+from DataManager.utils.common import register_info_logic, get_ajax_msg, init_filter_session, project_info_logic, set_filter_session, module_info_logic, td_info_logic, record_info_logic, get_total_values, reset_password_info_logic
 from DataManager.utils.httpGet import httpGet
 from DataManager.utils.operation import del_project_data, del_module_data, add_fav_data, add_td_pv, projectAndModule, del_td_data
 from DataManager.utils.pagination import get_pager_info
@@ -90,6 +90,30 @@ def register(request):
         return HttpResponse(get_ajax_msg(msg, '恭喜您，账号已成功注册'))
     elif request.method == 'GET':
         return render_to_response("data/register.html")
+
+
+def reset_password(request):
+
+    """
+    修改密码
+    :param request:
+    :return:
+    """
+    projectlist = projectAndModule
+    account = request.session["now_account"]
+    if request.is_ajax():
+        project_info = json.loads(request.body.decode('utf-8'))
+        msg = reset_password_info_logic(**project_info)
+        return HttpResponse(get_ajax_msg(msg, '/qacenter/data/login'))
+
+    elif request.method == 'GET':
+        manage_info = {
+            'account': account,
+            'role': request.session["role"],
+            'projects': projectlist
+        }
+        return render_to_response('data/reset_password.html', manage_info)
+
 
 @login_check
 def index(request):
