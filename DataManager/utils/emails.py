@@ -13,7 +13,7 @@ def send_password(receiver, password):
         smtp_server = 'smtp.exmail.qq.com'
 
     subject = "质量中心新密码"
-    smtpPort = '465'
+    sslPort = '465'
 
     body = MIMEText("您的新密码：" + password + "，请查收，谢谢！", _subtype='html', _charset='gb2312')
 
@@ -24,9 +24,8 @@ def send_password(receiver, password):
     msg.attach(body)
 
     try:
-        smtp = smtplib.SMTP_SSL(smtp_server,smtpPort)
-        smtp.connect(smtp_server)
-        smtp.starttls()
+        smtp = smtplib.SMTP_SSL(smtp_server,sslPort)
+        smtp.connect(smtp_server,sslPort)
         smtp.login(EMAIL_SEND_USERNAME, EMAIL_SEND_PASSWORD)
         smtp.sendmail(EMAIL_SEND_USERNAME, receiver.split(','), msg.as_string())
         smtp.quit()
