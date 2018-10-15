@@ -22,12 +22,15 @@ def send_password(receiver, password):
     msg['to'] = receiver
     msg.attach(body)
 
-    smtp = smtplib.SMTP()
-    smtp.connect(smtp_server)
-    smtp.starttls()
-    smtp.login(EMAIL_SEND_USERNAME, EMAIL_SEND_PASSWORD)
-    smtp.sendmail(EMAIL_SEND_USERNAME, receiver.split(','), msg.as_string())
-    smtp.quit()
+    try:
+        smtp = smtplib.SMTP()
+        smtp.connect(smtp_server)
+        smtp.starttls()
+        smtp.login(EMAIL_SEND_USERNAME, EMAIL_SEND_PASSWORD)
+        smtp.sendmail(EMAIL_SEND_USERNAME, receiver.split(','), msg.as_string())
+        smtp.quit()
+    except smtplib.SMTPException:
+        print("Error: 无法发送邮件")
 
 if __name__ == '__main__':
     send_password('##@qq.com, example@163.com', '123456789')

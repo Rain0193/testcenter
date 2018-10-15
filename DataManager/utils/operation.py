@@ -80,8 +80,8 @@ def forget_password_data(**kwargs):
         else:
             new_password = random_password()
             new_password_md5 = hashlib.md5(new_password.encode(encoding='utf-8')).hexdigest()
-            user_info.update_password_by_email(email, new_password_md5)
             send_password(email, new_password)
+            user_info.update_password_by_email(email, new_password_md5)
         return '密码已发送至邮箱，请查收'
     except DataError:
         logger.error('信息输入有误：{user_info}'.format(user_info=user_info))
