@@ -23,10 +23,12 @@ def send_password(receiver, password):
     msg.attach(body)
 
     try:
-        smtp = smtplib.SMTP()
+        smtp = smtplib.SMTP_SSL()
         smtp.connect(smtp_server)
         smtp.starttls()
         smtp.login(EMAIL_SEND_USERNAME, EMAIL_SEND_PASSWORD)
+
+
         smtp.sendmail(EMAIL_SEND_USERNAME, receiver.split(','), msg.as_string())
         smtp.quit()
     except smtplib.SMTPException:
