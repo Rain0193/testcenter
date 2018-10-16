@@ -62,10 +62,10 @@
 		margin-bottom:20px;
 		font-family:STHeitiSC-Light;
 		color:#444444;
-		margin-left: 50px;
+		/*margin-left: 50px;*/
 	}
         .td-param .td-param-name{
-			width:100px;
+			width:20%;
 			display:inline-block;
 			text-align:right;
 			margin: 0 auto;
@@ -75,7 +75,7 @@
 		}
 		.td-param input,select{
 			padding-left:10px;
-			width:55%;
+			width:65%;
 			height:35px;
 			line-height: 35px;
 			border:1px solid #DDDDDD;
@@ -86,9 +86,6 @@
 			align-items: center;
 			vertical-align: center;
 			padding-top: 0px;
-		}
-		.td-param select{
-			width:55%;
 		}
 	.form_datetime{
 		margin-left: 0px;
@@ -115,8 +112,8 @@
 		margin-top:30px;
 	}
     .my-tds-submit-btn-row .submit{
-			width:150px;
-			margin-left: 150px;
+			width: 25%;
+			margin-left: 23%;
 			text-align: center;
 			align-items: center;
 			display: block;
@@ -137,11 +134,10 @@
 		}
 	.del-btn-row{
 		margin-top: -40px;
-		margin-left: 50px;
 	}
     .del-btn-row .submit{
-			width:150px;
-			margin-left: 300px;
+			width:25%;
+			margin-left: 53%;
 			text-align: center;
 			align-items: center;
 			display: block;
