@@ -97,11 +97,11 @@
                 <span name="index" hidden>{{ forloop.counter0 }}</span>
                 <a href="/qacenter/data/project_td/{{ foo.id }}/" class="project-name">
                     <i class="iconfont icon-fav">&#xe618;</i>
-                    {{ foo.project_name|truncatechars:6 }}</a>
+                    {{ foo.project_name|truncatechars:9 }}</a>
                 <ul class="ul-menu" id="ul-menu{{ forloop.counter0 }}" hidden>
                     {% for fool in foo.moduleList %}
                         <li class="li-menu li-hover">
-                            <a href="/qacenter/data/module_td/{{ fool.id }}/">{{ fool.module_name|truncatechars:8 }}</a>
+                            <a href="/qacenter/data/module_td/{{ fool.id }}/">{{ fool.module_name|truncatechars:6 }}</a>
                         </li>
                     {% endfor %}
                 </ul>
