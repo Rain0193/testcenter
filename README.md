@@ -30,23 +30,25 @@ Key Features
 --------
 1. 安装mysql数据库服务端(推荐5.7+),并设置为utf-8编码，排序规则utf8_general_ci，创建相应qacenter数据库，设置好相应用户名、密码，启动mysql
 
-2. 修改:qacenter/qacenter/settings.py里DATABASES字典和邮件发送账号相关配置
+2. python3.X 环境部署，可以参考：<a href="https://blog.csdn.net/Tyro_java/article/details/78510301" title="Title">mac安装python3</a>
+
+3. 修改:qacenter/qacenter/settings.py里DATABASES字典和邮件发送账号相关配置
    ```python
         DATABASES = {
             'default': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'qacenter',  # 新建数据库名
             'USER': 'root',  # 数据库登录名
-            'PASSWORD': '123456',  # 数据库登录密码
+            'PASSWORD': '12345678',  # 数据库登录密码
             'HOST': '127.0.0.1',  # 数据库所在服务器ip地址
             'PORT': '3306',  # 监听端口 默认3306即可
         }
     }
     ```
 
-3. 命令行窗口执行pip install -r requirements.txt 安装工程所依赖的库文件
+4. 命令行窗口执行pip install -r requirements.txt 安装工程所依赖的库文件
 
-4. 命令行窗口切换到qacenter目录 生成数据库迁移脚本,并生成表结构
+5. 命令行窗口切换到qacenter目录 生成数据库迁移脚本,并生成表结构
     ```bash
         python manage.py makemigrations DataManager #生成数据工厂数据迁移脚本
         python manage.py makemigrations ApiManager #生成接口自动化平台数据迁移脚本
@@ -54,19 +56,19 @@ Key Features
         python manage.py migrate  #应用到db生成数据表
     ```
 
-5. 创建超级用户，用户后台管理数据库，并按提示输入相应用户名，密码，邮箱。 如不需用，可跳过此步骤
+6. 创建超级用户，用户后台管理数据库，并按提示输入相应用户名，密码，邮箱。 如不需用，可跳过此步骤
     ```bash
         python manage.py createsuperuser
     ```
 
-6. 启动服务,
+7. 启动服务,
     ```bash
         python manage.py runserver 0.0.0.0:8000
     ```
 
-7. 浏览器输入：http://127.0.0.1:8000/qacenter/data/register/  注册用户，开始尽情享用平台吧
+8. 浏览器输入：http://127.0.0.1:8000/qacenter/data/register/  注册用户，开始尽情享用平台吧
 
-12. 浏览器输入http://127.0.0.1:8000/admin/  输入步骤6设置的用户名、密码，登录后台运维管理系统，可后台管理数据
+9. 浏览器输入http://127.0.0.1:8000/admin/  输入步骤6设置的用户名、密码，登录后台运维管理系统，可后台管理数据
 
 ### 生产环境uwsgi+nginx部署参考：https://www.jianshu.com/p/d6f9138fab7b
 
